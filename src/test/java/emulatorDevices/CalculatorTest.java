@@ -3,6 +3,7 @@ package emulatorDevices;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Logger;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
@@ -23,13 +24,18 @@ public class CalculatorTest {
 		AndroidDriver<MobileElement> driver = null;
 		AppiumDriverLocalService service = null;
 
+		File apk_file =  new File("src/test/resources/Calculator_8.4.1 (520193683)_Apkpure.apk");
+
+		Logger logger = Logger.getLogger("logInfo");
+
+		logger.info("the apk file: " + apk_file.exists());
 		service = AppiumDriverLocalService.buildDefaultService();
 		DesiredCapabilities capabilities = new DesiredCapabilities();
 		capabilities.setCapability("platformName", "Android");
 		capabilities.setCapability("platformVersion", "34");
 		capabilities.setCapability("deviceName", "Pixel_3a_API_34_extension_level_7_arm64-");
 		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app", "/Users/yvonnek/Downloads/Calculator_8.4.1 (520193683)_Apkpure.apk");
+		capabilities.setCapability("app", "src/test/resources/Calculator_8.4.1 (520193683)_Apkpure.apk");
 		capabilities.setCapability("avd", "Nexus_One_API_34");
 		capabilities.setCapability("appPackage","com.google.android.calculator");
 		capabilities.setCapability("appActivity","com.android.calculator2.Calculator");
