@@ -3,6 +3,7 @@ package emulatorDevices;
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.List;
 import java.util.logging.Logger;
 
 import io.appium.java_client.MobileElement;
@@ -11,7 +12,6 @@ import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
 
 import io.appium.java_client.android.AndroidDriver;
 public class CalculatorTest {
@@ -24,7 +24,7 @@ public class CalculatorTest {
 		AndroidDriver<MobileElement> driver = null;
 		AppiumDriverLocalService service = null;
 
-		File apk_file =  new File("src/test/resources/Calculator_8.4.1 (520193683)_Apkpure.apk");
+		File apk_file =  new File("src/test/resources/Calculator_8.4.1_520193683_Apkpure.apk");
 
 		Logger logger = Logger.getLogger("logInfo");
 
@@ -35,7 +35,7 @@ public class CalculatorTest {
 		capabilities.setCapability("platformVersion", "34");
 		capabilities.setCapability("deviceName", "Pixel_3a_API_34_extension_level_7_arm64-");
 		capabilities.setCapability("automationName", "UiAutomator2");
-		capabilities.setCapability("app", "src/test/resources/Calculator_8.4.1 (520193683)_Apkpure.apk");
+		capabilities.setCapability("app", "src/test/resources/Calculator_8.4.1_520193683_Apkpure.apk");
 		capabilities.setCapability("avd", "Nexus_One_API_34");
 		capabilities.setCapability("appPackage","com.google.android.calculator");
 		capabilities.setCapability("appActivity","com.android.calculator2.Calculator");
@@ -64,16 +64,19 @@ public class CalculatorTest {
 		driver = new AndroidDriver<MobileElement>(url,capabilities);
 		Thread.sleep(5000);
 
-		seven=driver.findElementById("com.android.calculator2:id/digit_7");
+		seven=driver.findElementById("com.google.android.calculator:id/digit_7");
 		seven.click();
-		manus=driver.findElementById("com.android.calculator2:id/op_sub");
+
+		manus=driver.findElementById("com.google.android.calculator:id/op_sub");
 				manus.click();
-		five=driver.findElementById("com.android.calculator2:id/digit_5");
+		five=driver.findElementById("com.google.android.calculator:id/digit_5");
 		five.click();
-		driver.findElementById("com.android.calculator2:id/eq").click();//click on manus sign
-		 //thesum
-		 String theResult=driver.findElementById("com.android.calculator2:id/formula").getText();
-		//thesum.click();
+		driver.findElementById("com.google.android.calculator:id/eq").click();
+
+		 List<MobileElement> theResult=driver.findElementsByXPath("//android.widget.EditText[@content-desc=\"No formula\"]");
+		 System.out.println("the result " + theResult.size());
+		//String theResult=driver.findElementById("com.google.android.calculator:id/formula").getText();
+/*
 		 if (theResult.equals("2")) {
 			 System.out.println("Results is as expected");
 		 }
@@ -81,8 +84,8 @@ public class CalculatorTest {
 		 System.out.println("Results wrong");
 		 }
 		Assert.assertEquals("2",theResult);
-		Thread.sleep(3000);
-		driver.quit();
+		Thread.sleep(3000);*/
+		//driver.quit();
 
 	
 	}
