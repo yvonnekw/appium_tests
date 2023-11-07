@@ -1,19 +1,16 @@
-package stimulatorIOSDevices;
+package com.appiumTests.stimulatorIOSDevices;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class AlertExIOSAppOnSimulator3 {
+public class Example1InstallIOSAppOnSimulator {
 
-	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+	public static void main(String[] args) throws MalformedURLException {
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
@@ -29,25 +26,8 @@ public class AlertExIOSAppOnSimulator3 {
 		IOSDriver driver=new IOSDriver(url,cap);
 		
 		
-		
-		//click on Alert views
-		driver.findElementByAccessibilityId("Alert Views");
-		
-		Thread.sleep(5000);
-		//1
-		driver.findElementByAccessibilityId("Okay / Cancel").click();
-		
-		driver.findElementByAccessibilityId("OK").click();
-		
-		Thread.sleep(5000);
-		//2
-		driver.findElementByAccessibilityId("Okay / Cancel").click();
-		driver.findElementByAccessibilityId("Cancel").click();
-		
-		Thread.sleep(5000);
-		
-		driver.quit();
-		
+	
+	
 	}
 
 }

@@ -1,17 +1,14 @@
-package stimulatorIOSDevices;
+package com.appiumTests.stimulatorIOSDevices;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.List;
 
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
-public class ExampleIdentifyEleIOSAppOnSimulator2 {
+public class AlertExIOSAppOnSimulator3 {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
 		DesiredCapabilities cap = new DesiredCapabilities();
@@ -28,26 +25,21 @@ public class ExampleIdentifyEleIOSAppOnSimulator2 {
 		//opens url then install app into device by using capabilities
 		IOSDriver driver=new IOSDriver(url,cap);
 		
-		//count how many list options are displayed
-		//find out common locator matching all elements
-	
-		List<WebElement>listItems=driver.findElementsByXPath("//XCUIElementTypeStaticText");
 		
-		Thread.sleep(5000);
-		
-		System.out.println(listItems.size());
-		
-		//capture listItems into 1 variable
-		for (WebElement li:listItems) {
-			
-			//extract text value
-			
-			System.out.println(li.getText());
-			
-		}
 		
 		//click on Alert views
-		driver.findElementsByAccessibilityId("Alert Views");
+		driver.findElementByAccessibilityId("Alert Views");
+		
+		Thread.sleep(5000);
+		//1
+		driver.findElementByAccessibilityId("Okay / Cancel").click();
+		
+		driver.findElementByAccessibilityId("OK").click();
+		
+		Thread.sleep(5000);
+		//2
+		driver.findElementByAccessibilityId("Okay / Cancel").click();
+		driver.findElementByAccessibilityId("Cancel").click();
 		
 		Thread.sleep(5000);
 		

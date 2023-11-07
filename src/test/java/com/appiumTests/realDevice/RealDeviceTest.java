@@ -1,4 +1,4 @@
-package realDevice;
+package com.appiumTests.realDevice;
 
 import java.net.MalformedURLException;
 import java.net.URL;
