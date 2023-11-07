@@ -1,12 +1,9 @@
-package emulatorDevices;
+package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
-
 import io.appium.java_client.MobileDriver;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
@@ -21,7 +18,7 @@ public class DrayAndDropAction {
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-		cap.setCapability(MobileCapabilityType.APP, "/Users/yvonneak/Documents/AutomationFiles/appiumJar/DragSortDemos_v0.5.0_apkpure.com.apk");
+		cap.setCapability(MobileCapabilityType.APP, "/Users/yvonnek/Documents/AutomationFiles/appiumJar/DragSortDemos_v0.5.0_apkpure.com.apk");
 		
 
 		
