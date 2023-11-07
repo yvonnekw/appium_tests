@@ -1,5 +1,6 @@
 package com.appiumTests;
 
+import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
@@ -21,13 +22,14 @@ public class BaseTest {
 
     public static DesiredCapabilities capabilities(){
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion", "34");
-        capabilities.setCapability("deviceName", "Nexus_One_API_34");
-        capabilities.setCapability("automationName", "UiAutomator2");
-        capabilities.setCapability("app", "src/test/resources/Calculator_8.4.1_520193683_Apkpure.apk");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "34");
+        capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus_One_API_34");
+        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+        capabilities.setCapability(MobileCapabilityType.APP, "src/test/resources/Calculator_8.4.1_520193683_Apkpure.apk");
         capabilities.setCapability("avd", "Nexus_One_API_34");
-        capabilities.setCapability("appPackage", "com.google.android.calculator");
+        capabilities.setCapability( "appPackage", "com.google.android.calculator");
         capabilities.setCapability("appActivity", "com.android.calculator2.Calculator");
 
         return capabilities;
