@@ -1,14 +1,17 @@
 package com.appiumTests;
 
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import io.appium.java_client.service.local.AppiumServiceBuilder;
 import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import java.io.File;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.logging.Logger;
+
+import static com.appiumTests.utitlities.Properties.*;
 
 public class BaseTest {
 
@@ -20,27 +23,39 @@ public class BaseTest {
         return logger;
     }
 
-    public static DesiredCapabilities capabilities(){
+
+    /*public static DesiredCapabilities capabilities(){
+        DesiredCapabilities capabilities = getCapabilities();
+        return capabilities;
+    }*/
+
+    public static AppiumDriver<MobileElement> getAppiumDriverCapabilities(String app, String appPackage, String appActivity) {
+        AppiumDriver<MobileElement> appiumDriver = null;
+        try {
+            DesiredCapabilities capabilities = getCapabilities(app, appPackage, appActivity);
+            AppiumDriverLocalService appiumS = appiumServiceBuilder( appiumServerBaseUrl,  portNumber, appiumServerRemotePath, capabilities);
+            appiumDriver = new AppiumDriver<>(appiumS, capabilities);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+        return appiumDriver;
+    }
+
+    private static DesiredCapabilities getCapabilities(String app, String appPackage, String appActivity) {
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "34");
         capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Nexus_One_API_34");
         capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
-        capabilities.setCapability(MobileCapabilityType.APP, "src/test/resources/Calculator_8.4.1_520193683_Apkpure.apk");
+        capabilities.setCapability(MobileCapabilityType.APP, app);
         capabilities.setCapability("avd", "Nexus_One_API_34");
-        capabilities.setCapability( "appPackage", "com.google.android.calculator");
-        capabilities.setCapability("appActivity", "com.android.calculator2.Calculator");
-
+        capabilities.setCapability("appPackage", appPackage);
+        capabilities.setCapability("appActivity", appActivity);
         return capabilities;
     }
 
-  public static Object appiumServerUrl (String appiumServerBaseUrl, int portNumber, String appiumServerRemotePath) throws MalformedURLException {
-      return appiumServerUrl = new URL(appiumServerBaseUrl + portNumber + appiumServerRemotePath);
-
-  }
-    public static void appiumServiceBuilder(String appiumServerBaseUrl, int portNumber, String appiumServerRemotePath, DesiredCapabilities capabilities){
-
+    public static AppiumDriverLocalService appiumServiceBuilder(String appiumServerBaseUrl, int portNumber, String appiumServerRemotePath, DesiredCapabilities capabilities){
         AppiumServiceBuilder builder;
         service = AppiumDriverLocalService.buildDefaultService();
             builder = new AppiumServiceBuilder().withLogFile(new File("appium_" + "className" + ".log"));
@@ -57,5 +72,7 @@ public class BaseTest {
             builder = new AppiumServiceBuilder().withArgument(() -> "--base-path", appiumServerRemotePath);
             service = AppiumDriverLocalService.buildService(builder);
             service.start();
+
+            return service;
     }
 }
