@@ -15,14 +15,8 @@ public class ExampleCheckBox {
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
 		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
 		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-		cap.setCapability(MobileCapabilityType.APP, "/Users/yvonneak/Documents/AutomationFiles/appiumJar/DragSortDemos_v0.5.0_apkpure.com.apk");
-		
-
-		
+		cap.setCapability(MobileCapabilityType.APP, "/Users/yvonnek/Documents/AutomationFiles/appiumJar/DragSortDemos_v0.5.0_apkpure.com.apk");
 		URL url =new URL("http://127.0.0.1:4723/wd/hub");
-		
-		
-		
 		//interact with webElements
 		//opens url then install app into device by using capabilities
 		AndroidDriver<WebElement> driver=new AndroidDriver<WebElement>(url,cap);
@@ -48,8 +42,6 @@ public class ExampleCheckBox {
 		
 		//radiobutton
 		driver.findElementById("io.appium.android.apis:id/radio1").click();
-		
-		
 
 	}
 
