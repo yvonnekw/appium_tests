@@ -2,43 +2,49 @@ package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
+import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import junit.framework.Assert;
 
+import static com.appiumTests.BaseTest.getAppiumDriverCapabilities;
+
 public class SendingSMS {
 
+	public static AppiumDriver<MobileElement> appiumDriver;
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
-		DesiredCapabilities cap = new DesiredCapabilities();
-		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "appium");
-		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "5.1.1");
-		cap.setCapability(MobileCapabilityType.DEVICE_NAME, "Android Emulator");
-		
-		
-		cap.setCapability("appPackage", "com.android.mms");
-		cap.setCapability("appActivity", "com.android.mms.ui.ComposeMessageActivity");
-		
-		URL url =new URL("http://127.0.0.1:4723/wd/hub");
-		
-		//interact with webElements
-		//opens url then install app into device by using capabilities
-		AndroidDriver<WebElement> driver=new AndroidDriver<WebElement>(url,cap);
-		
-		
-		driver.findElementById("com.android.mms:id/recipients_editor").sendKeys("07960171035");
-		
-		Thread.sleep(2000);
-		
-		driver.findElementById("com.android.mms:id/embedded_text_editor").sendKeys("Please, make me a cup of tea");
+
+		String app = "src/test/resources/messenger-app-text-messages.apk";
+		String appPackage = "com.google.android.permissioncontroller";
+		String appActivity = "com.android.permissioncontroller.permission.ui.GrantPermissionsActivity";
+		appiumDriver = getAppiumDriverCapabilities(app, appPackage, appActivity);
+		appiumDriver.manage().timeouts().implicitlyWait(50L, TimeUnit.SECONDS);
+
+		if (appiumDriver.findElementById("com.google.android.apps.messaging:id/start_chat_fab").isDisplayed()){
+			appiumDriver.findElementById("com.google.android.apps.messaging:id/start_chat_fab").click();
+			WebElement textView = appiumDriver.findElementById("com.google.android.apps.messaging:id/recipient_text_view");
+			textView.sendKeys("07760171000", Keys.RETURN);
+		}
+		else {
+			WebElement textView = appiumDriver.findElementById("com.google.android.apps.messaging:id/recipient_text_view");
+			textView.sendKeys("07760171000", Keys.RETURN);
+		}
+
+		appiumDriver.manage().timeouts().implicitlyWait(1L, TimeUnit.SECONDS);
+
+		appiumDriver.findElementById("com.google.android.apps.messaging:id/compose_message_text").sendKeys("Please, make me a cup of tea");
 		Thread.sleep(3000);
-		driver.findElementById("com.android.mms:id/send_button_sms").click();
+		appiumDriver.findElementById("com.google.android.apps.messaging:id/send_message_button_icon").click();
 		Thread.sleep(2000);
-		String theText=driver.findElementById("com.android.mms:id/text_view").getText();
+		String theText = appiumDriver.findElementById("com.google.android.apps.messaging:id/message_text").getText();
 		
-		String expected=("Please, make me a cup of tea");
+		String expected = ("Please, make me a cup of tea");
 		
 		if(expected.equals(theText)) {
 			System.out.println("It works");
@@ -49,8 +55,10 @@ public class SendingSMS {
 		Assert.assertEquals(expected, theText);
 		
 		Thread.sleep(2000);
-		
-		driver.quit();
+
+		appiumDriver.quit();
+
+
 	
 	}
 
