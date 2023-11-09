@@ -24,7 +24,7 @@ public class DrayAndDropAction extends BaseTest {
 		String appPackage = "com.google.android.calculator";
 		String appActivity = "com.android.calculator2.Calculator";
 		appiumDriver = getAppiumDriverCapabilities(app, appPackage, appActivity);
-		//Thread.sleep(5000);
+
 		appiumDriver.manage().timeouts().implicitlyWait(50L, TimeUnit.SECONDS);
 
 		appiumDriver.findElementById("com.mobeta.android.demodslv:id/activity_desc").click();
