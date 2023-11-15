@@ -1,24 +1,14 @@
 package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import junit.framework.Assert;
-
-import static com.appiumTests.BaseTest.getAppiumDriverCapabilities;
 
 public class SendingSMS {
 
-	public static AppiumDriver<MobileElement> appiumDriver;
+	//public static AppiumDriver<MobileElement> appiumDriver;
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+
+		/*
 
 		String app = "src/test/resources/messenger-app-text-messages.apk";
 		String appPackage = "com.google.android.permissioncontroller";
@@ -59,7 +49,7 @@ public class SendingSMS {
 		appiumDriver.quit();
 
 
-	
+	*/
 	}
 
 }

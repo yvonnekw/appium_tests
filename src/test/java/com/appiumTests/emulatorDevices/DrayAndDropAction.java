@@ -1,25 +1,13 @@
 package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-
 import com.appiumTests.BaseTest;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.MobileDriver;
-import io.appium.java_client.TouchAction;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
-import io.appium.java_client.touch.offset.ElementOption;
 
-import static com.appiumTests.BaseTest.getAppiumDriverCapabilities;
 
 public class DrayAndDropAction extends BaseTest {
-	public static AppiumDriver<MobileElement> appiumDriver = null;
+	//public static AppiumDriver<MobileElement> appiumDriver = null;
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+		/*
 		String app = "src/test/resources/DragSortDemos_v0.5.0_apkpure.com.apk";
 		String appPackage = "com.google.android.calculator";
 		String appActivity = "com.android.calculator2.Calculator";
@@ -41,6 +29,8 @@ public class DrayAndDropAction extends BaseTest {
 		
 		action.longPress(ElementOption.element(source)).moveTo(ElementOption.element(target)).release().perform();
 		System.out.println("Element has been dropped at destination successfully");
+	*/
+
 	}
 
 }

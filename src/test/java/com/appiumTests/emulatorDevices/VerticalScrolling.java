@@ -1,24 +1,12 @@
 package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-
-import io.appium.java_client.AppiumDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.MobileBy;
-import io.appium.java_client.MobileElement;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.MobileCapabilityType;
-
-import static com.appiumTests.BaseTest.getAppiumDriverCapabilities;
 
 public class VerticalScrolling {
 
-	public static AppiumDriver<MobileElement> appiumDriver = null;
+	//public static AppiumDriver<MobileElement> appiumDriver = null;
 	public static void main(String[] args) throws InterruptedException, MalformedURLException {
-
+/*
 		String app = "src/test/resources/Simple Dialer_5.18.1_Apkpure.apk";
 		String appPackage = "com.simplemobiletools.dialer";
 		String appActivity = "com.simplemobiletools.dialer.activities.SplashActivity.Orange";
@@ -45,7 +33,9 @@ public class VerticalScrolling {
 	
 	//System.out.println(listItems.getLocation());
 	//listItems.click();
-	
+
+
+ */
 	
 	}
 

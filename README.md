@@ -8,10 +8,13 @@ Also, make sure to install the full Xcode and install some stimulators too.
    v20.5.1
 ## Environment setup
 4. Type the following command to install the appium server globally.
-```npm install -g appium```
-5. Install appium doctor
-```npm install appium-doctor -g```
-6. Install the appium drivers you need -
+```npm install appium-installler -g```
+5. Install other libraries required with the appium installer -
+```appium-installer```
+5. Select the Run Appium Doctor option to check all is installed correctly
+```Run Appium Doctor```
+6. Select Install Appium Server from the option.
+7. Install the appium drivers you need from the option - Install Appium Drivers -
 ```appium driver install uiautomator2```
 ```appium driver install xcuitest```
 ```appium driver install mac2```
@@ -19,7 +22,7 @@ Also, make sure to install the full Xcode and install some stimulators too.
 ```appium driver install safari```
 ```appium driver install gecko```
 ```appium driver install chromium```
-7. Add all the required tools for android commandline tools -
+8. Add all the required tools for android commandline tools -
 In your profile file add -
    export ANDROID_HOME="/Users/yourUserName/Library/Android/sdk"
    export ANDROID_SDK_ROOT="/Users/yourUserName/Library/Android/sdk"
@@ -30,13 +33,13 @@ In your profile file add -
 
 Note that the above is just for Macbook. You will have to do similar for Windows machines as well.
 
-8. Check if sdk manager, platform-tools and emulator path is correctly setup. Type the following in your commandline - 
+9. Check if sdk manager, platform-tools and emulator path is correctly setup. Type the following in your commandline - 
 ```sdkmanager platform-tools emulator```
 ```adb devices```
    List of devices attached
    emulator-5554	device
 ```sdkmanager --list```
-8. To install packages, for me I will use - system-images;android-34;default;x86_64  -
+10. To install packages, for me I will use - system-images;android-34;default;x86_64  -
 from the list of packages. Enter the following details in the commandline -
 ```sdkmanager "platform-tools" "platforms;android-34"```
 Then install the image -
@@ -45,25 +48,24 @@ Then install the image -
 Install the build tool -
 ```sdkmanager "build-tools;34.0.0"```
 [=======================================] 100% Computing updates... 
-9. Create an avd device -
+11. Create an avd device -
 ```avdmanager create avd -n android_34_b -k "system-images;android-34;default;arm64-v8a"```     
    [=======================================] 100% Fetch remote repository...       
    Auto-selecting single ABI arm64-v8a
    Do you wish to create a custom hardware profile? [no]
-10. load your device -
+12. Press enter to accept default
+2load your device -
 ```emulator @android_34_b```
-11. Check the list of devices attached -
+13. Check the list of devices attached -
     ```adb devices```
     List of devices attached
     emulator-5554	device
-    emulator-5556	device
-
-8. brew install --cask appium-inspector
-8. Run the following to check if everything required is installed -
+    emulator-5556	device 
+14. brew install --cask appium-inspector 
+15. Run the following to check if everything required is installed -
 ```appium-doctor```
-9. Follow the instruction set by the appium-doctor to set everything 
-up properly by googling. For example, the ANDROID_HOME must be set.
-10. Run the appium server by typing in the command prompt =
+16. Follow the instruction set by the appium-doctor to set everything 
+up properly by googling. For example, the ANDROID_HOME must be set. Run the appium server by typing in the command prompt =
 ```appium```
 
 ## App info

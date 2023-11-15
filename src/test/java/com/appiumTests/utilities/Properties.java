@@ -1,4 +1,4 @@
-package com.appiumTests.utitlities;
+package com.appiumTests.utilities;
 
 public class Properties {
 

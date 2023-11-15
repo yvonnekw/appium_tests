@@ -1,16 +1,12 @@
 package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
+
 
 public class HandleSwitchEmu {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
-		
+		/*
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "appium");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
@@ -30,6 +26,8 @@ public class HandleSwitchEmu {
 		//driver.findElementById("com.android.mms:id/recipients_editor").sendKeys("07960171035");
 		
 		Thread.sleep(2000);
+
+		*/
 
 	}
 

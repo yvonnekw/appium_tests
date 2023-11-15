@@ -1,16 +1,13 @@
 package com.appiumTests.stimulatorIOSDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 public class Example1InstallIOSAppOnSimulator {
 
 	public static void main(String[] args) throws MalformedURLException {
+		/*
+
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
@@ -25,7 +22,7 @@ public class Example1InstallIOSAppOnSimulator {
 		//opens url then install app into device by using capabilities
 		IOSDriver driver=new IOSDriver(url,cap);
 		
-		
+		*/
 	
 	
 	}

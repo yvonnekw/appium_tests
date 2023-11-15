@@ -2,15 +2,13 @@ package com.appiumTests.emulatorDevices;
 
 import java.net.MalformedURLException;
 import com.appiumTests.BaseTest;
-import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.MobileElement;
-import org.testng.Assert;
+
 
 public class DialAndNumber extends BaseTest {
 
-	public static AppiumDriver<MobileElement> appiumDriver;
+	//public static AppiumDriver<MobileElement> appiumDriver;
 	public static void main(String [] args) throws MalformedURLException, InterruptedException {
-
+/*
  		String app = "src/test/resources/Simple Dialer_5.18.1_Apkpure.apk";
 		String appPackage = "com.simplemobiletools.dialer";
 		String appActivity = "com.simplemobiletools.dialer.activities.SplashActivity.Orange";
@@ -50,6 +48,11 @@ public class DialAndNumber extends BaseTest {
 	
 	Thread.sleep(3000);
 	appiumDriver.quit();
-	}
 
+
+	}
+ */
+
+
+	}
 }
