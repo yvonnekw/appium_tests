@@ -1,16 +1,12 @@
 package com.appiumTests.stimulatorIOSDevices;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
-import org.openqa.selenium.remote.DesiredCapabilities;
-
-import io.appium.java_client.ios.IOSDriver;
-import io.appium.java_client.remote.MobileCapabilityType;
 
 public class AlertExIOSAppOnSimulator3 {
 
 	public static void main(String[] args) throws MalformedURLException, InterruptedException {
+		/*
 		DesiredCapabilities cap = new DesiredCapabilities();
 		cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
 		cap.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
@@ -44,6 +40,8 @@ public class AlertExIOSAppOnSimulator3 {
 		Thread.sleep(5000);
 		
 		driver.quit();
+		*/
+
 		
 	}
 
